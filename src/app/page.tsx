@@ -21,7 +21,7 @@ export default function Home() {
           transition={{ duration: 0.35, delay: 0 }}
           className="text-4xl sm:text-6xl font-bold"
         >
-          StableMax
+          Imaginate AI
         </motion.h1>
         <motion.p
           initial={{

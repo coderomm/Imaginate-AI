@@ -18,16 +18,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "StableMax - Generate Images for FREE",
+  title: "Imaginate AI - Generate Images for FREE",
   description:
-    "Generate stunning images from text using AI models for free with StableMax. Turn your ideas into visual art instantly.",
+    "Generate stunning images from text using AI models for free with Imaginate AI. Turn your ideas into visual art instantly.",
   openGraph: {
-    title: "StableMax - Free AI Image Generation",
+    title: "Imaginate AI - Free AI Image Generation",
     description: "Turn your text into images with our free AI-powered tool",
   },
   twitter: {
     card: "summary_large_image",
-    title: "StableMax - Free AI Image Generation",
+    title: "Imaginate AI - Free AI Image Generation",
     description: "Turn your text into images with our free AI-powered tool",
   },
 };
