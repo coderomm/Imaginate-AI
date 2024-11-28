@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -47,13 +23,14 @@ body {
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -89,4 +66,58 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+.custom-text-color {
+  background: linear-gradient(81.02deg,
+      rgb(250, 85, 96) -23.49%,
+      rgb(177, 75, 244) 45.66%,
+      rgb(77, 145, 255) 114.8%) text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-border-color {
+  border-color: linear-gradient(81.02deg,
+      rgb(250, 85, 96) -23.49%,
+      rgb(177, 75, 244) 45.66%,
+      rgb(77, 145, 255) 114.8%);
+}
+
+#prompt-input {
+  width: 100%;
+  /* height: var(--input-height); */
+  min-width: 0px;
+  outline-offset: 2px;
+  position: relative;
+  appearance: none;
+  padding-top: 0.875rem;
+  padding-bottom: calc(0px + 0.75rem);
+  min-height: 3.8125rem;
+  vertical-align: top;
+  resize: none;
+  color: #9094A6;  
+  line-height: 170%;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-left: 1rem;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  outline: transparent solid 2px;
+  border-style: solid;
+  border-image: initial;
+  overflow: hidden;
+  border-color: #101622;
+  border-width: 1px;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+#prompt-input:focus-visible {
+  background: transparent;
+  border-color: #C14DD4;
+}
+
+.image-loading-bg{
+  background: linear-gradient(122deg, rgb(250, 85, 96) 0.01%, rgb(177, 75, 244) 49.9%, rgb(77, 145, 255) 100%);
 }

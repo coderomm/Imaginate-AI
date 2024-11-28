@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/Header";
 import Provider from "./provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Appbar } from "@/components/Appbar";
+import Footer from "@/components/Footer";
+import { baseMetadata, jsonLdSchema } from "@/lib/metadata";
+
+export const metadata: Metadata = baseMetadata;
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,21 +21,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Imaginate AI - Generate Images for FREE",
-  description:
-    "Generate stunning images from text using AI models for free with Imaginate AI. Turn your ideas into visual art instantly.",
-  openGraph: {
-    title: "Imaginate AI - Free AI Image Generation",
-    description: "Turn your text into images with our free AI-powered tool",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Imaginate AI - Free AI Image Generation",
-    description: "Turn your text into images with our free AI-powered tool",
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,13 +28,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdSchema)
+          }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative max-w-7xl mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Provider>
-            <Header />
+            <Appbar />
             {children}
+            <Footer />
             <Toaster />
           </Provider>
         </ThemeProvider>
