@@ -3,6 +3,8 @@ import { NEXT_AUTH_CONFIG } from "@/utils/auth";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
     const session = await getServerSession(NEXT_AUTH_CONFIG);
     if (!session) {
@@ -42,7 +44,7 @@ export async function POST(req: NextRequest) {
             seed: randomSeed,
             userId: user.id,
         },
-    });
+    });    
 
     return NextResponse.json({ url: imageUrl })
 }

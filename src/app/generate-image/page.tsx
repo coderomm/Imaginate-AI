@@ -48,6 +48,10 @@ export default function Page() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        if (!session) {
+            toast({ variant: "destructive", description: "Login required to generate an image." });
+            return;
+        }
         try {
             setLoading(true);
             const response = await fetch("/api/image", {
@@ -106,7 +110,7 @@ export default function Page() {
                                 containerClassName="rounded-full"
                                 as="button"
                                 buttonType={btnType.submit}
-                                btnDisabled={loading || !session}
+                                btnDisabled={loading}
                                 className="disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50
                                  bg-black text-white flex items-center space-x-2 w-full md:w-auto">
                                 <span className="flex justify-center items-center gap-2 w-auto">
