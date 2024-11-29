@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const baseMetadata: Metadata = {
-    metadataBase: new URL('https://imaginate-ai.vercel.app'),
+    metadataBase: new URL('https://ai-imaginate.vercel.app'),
     title: {
         default: 'Imaginate - Free AI Image Generator | Create Stunning Visuals Instantly',
         template: '%s | Imaginate AI'
@@ -18,12 +18,12 @@ export const baseMetadata: Metadata = {
     ],
     authors: [{ name: 'Om Sharma' }],
     creator: 'Om Sharma',
-    publisher: 'Imaginate',
+    publisher: 'Imaginate AI',
     
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://imaginate-ai.vercel.app',
+        url: 'https://ai-imaginate.vercel.app',
         title: 'Imaginate - Free AI Image Generator',
         description: 'Unleash your creativity with Imaginate - a free AI-powered image generation tool. Transform text prompts into stunning, unique images in seconds.',
         siteName: 'Imaginate',
@@ -39,7 +39,7 @@ export const baseMetadata: Metadata = {
     
     twitter: {
         card: 'summary_large_image',
-        title: 'Imaginate - Free AI Image Generator',
+        title: 'Imaginate AI - Free AI Image Generator',
         description: 'Unleash your creativity with Imaginate - a free AI-powered image generation tool. Transform text prompts into stunning, unique images in seconds.',
         creator: '@1omsharma', // Replace with your Twitter handle
         images: ['/og-image.png']
@@ -65,12 +65,12 @@ export const baseMetadata: Metadata = {
     },
     
     alternates: {
-        canonical: 'https://imaginate-ai.vercel.app'
+        canonical: 'https://ai-imaginate.vercel.app'
     },
     
     icons: {
         icon: [
-            { url: '/favicon.webp' },
+            { url: '/favicon.ico' },
             { url: '/favicon.webp', sizes: '180x180', type: 'image/png' },
             { url: '/favicon.webp', sizes: '180x180', type: 'image/png' }
         ],
@@ -104,8 +104,8 @@ export const generateImageMetadata: Metadata = {
 export const jsonLdSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Imaginate',
-    'url': 'https://imaginate-ai.vercel.app',
+    'name': 'Imaginate AI',
+    'url': 'https://ai-imaginate.vercel.app',
     'description': 'Free AI-powered image generation tool',
     'applicationCategory': 'Multimedia',
     'operatingSystem': 'All',

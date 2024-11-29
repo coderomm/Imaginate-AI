@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import UserAccountDropDown from "./UserAccountDropDown";
 // import UserAccountDropDown from "./UserAccountDropDown";
 
 export const Appbar = () => {
@@ -43,15 +43,10 @@ export const Appbar = () => {
               Login
             </Button>
           ) : (
-            <Link href="/profile">
-              <Avatar>
-                <AvatarImage src={user?.image || ""} />
-                <AvatarFallback>OM</AvatarFallback>
-              </Avatar>
-            </Link>
+            ""
           )}
 
-          {/* <UserAccountDropDown /> */}
+          <UserAccountDropDown />
         </div>
       </motion.div>
     </nav>

@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Appbar } from "@/components/Appbar";
 import Footer from "@/components/Footer";
 import { baseMetadata, jsonLdSchema } from "@/lib/metadata";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = baseMetadata;
 
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <head>       
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -45,6 +46,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <Toaster />
+            <Analytics />
           </Provider>
         </ThemeProvider>
       </body>
