@@ -1,11 +1,12 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+// import Image from "next/image";
 import React from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function UserImage(image:any ) {
+export default function UserImage({ image }: any) {
   return (
     <div>
-      <Image
+      <img
         className="w-full h-full rounded-full cursor-pointer"
         src={image || ""}
         width={100}

@@ -6,7 +6,6 @@ import { LogOut, UserRound } from "lucide-react";
 import { useRouter } from "next/navigation";
 import UserImage from "./UserImage";
 import { motion, AnimatePresence } from "framer-motion";
-// import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
