@@ -6,7 +6,6 @@ import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import UserAccountDropDown from "./UserAccountDropDown";
-// import UserAccountDropDown from "./UserAccountDropDown";
 
 export const Appbar = () => {
   const session = useSession();
@@ -28,7 +27,7 @@ export const Appbar = () => {
             height={200}
             className="rounded-full size-10"
           /> */}
-          <span className="text-lg md:text-2xl font-bold tracking-tight text-foreground block">
+          <span className="text-2xl md:text-3xl font-bold tracking-tight text-foreground block custom-text-color animate-pulse backdrop-blur-lg">
             Imaginate AI
           </span>
         </Link>

@@ -64,7 +64,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="__featuredHeroImages py-3">
+      <section className="__featuredHeroImages py-3 max-w-[80%] md:max-w-full mx-auto">
         <AnimatedTestimonials testimonials={featuredImagesSingles} autoplay={true} />
       </section>
 
