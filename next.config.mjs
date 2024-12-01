@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "image.pollinations.ai",
+        hostname: "**",
         pathname: "/**",
         port: "",
         protocol: "https",
