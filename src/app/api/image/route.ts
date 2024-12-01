@@ -4,9 +4,20 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 const loginRequired = process.env.LOGIN_REQUIRED === "true";
+const loginRequired = process.env.LOGIN_REQUIRED === "true";
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
+    let session = null;
+    let user = null;
+
+    if (loginRequired) {
+        session = await getServerSession(NEXT_AUTH_CONFIG);
+        if (!session) {
+            return NextResponse.json({
+                error: 'You are not logged in',
+            }, { status: 401 })
+        }
     let session = null;
     let user = null;
 
@@ -21,7 +32,21 @@ export async function POST(req: NextRequest) {
         user = await prisma.user.findUnique({
             where: { id: session.user.id },
         });
+        user = await prisma.user.findUnique({
+            where: { id: session.user.id },
+        });
 
+        if (!user) {
+            return NextResponse.json({ error: "No user found" }, { status: 401 });
+        }
+    }
+
+    const { prompt }: { prompt: string } = await req.json();
+    if (!prompt || prompt.length < 5) {
+        return NextResponse.json(
+            { error: "Invalid prompt. It must be at least 5 characters long." },
+            { status: 400 }
+        );
         if (!user) {
             return NextResponse.json({ error: "No user found" }, { status: 401 });
         }
@@ -89,13 +114,29 @@ export async function GET() {
                 { status: 401 }
             );
         }
+    if (loginRequired) {
+        const session = await getServerSession(NEXT_AUTH_CONFIG);
+        if (!session) {
+            return NextResponse.json(
+                { error: "You are Unauthorized" },
+                { status: 401 }
+            );
+        }
 
         const user = await prisma.user.findUnique({
             where: {
                 id: session.user.id,
             },
         });
+        const user = await prisma.user.findUnique({
+            where: {
+                id: session.user.id,
+            },
+        });
 
+        if (!user) {
+            return NextResponse.json({ error: "No user found" }, { status: 401 });
+        }
         if (!user) {
             return NextResponse.json({ error: "No user found" }, { status: 401 });
         }
@@ -106,7 +147,15 @@ export async function GET() {
             },
             orderBy: { createdAt: "desc" },
         });
+        const posts = await prisma.post.findMany({
+            where: {
+                userId: user.id,
+            },
+            orderBy: { createdAt: "desc" },
+        });
 
+        return NextResponse.json(posts);
+    }
         return NextResponse.json(posts);
     }
 }
