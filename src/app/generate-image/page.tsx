@@ -22,6 +22,7 @@ import UserGenImages from "@/components/UserGenImages";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useClearSessionIfLoginNotRequired } from "@/utils/clearSession";
+import { decryptURL } from "@/utils/encryption";
 
 enum btnType { 'submit', 'button' }
 
@@ -65,7 +66,8 @@ export default function Page() {
                 if (loginRequired) {
                     setRefreshKey(prev => prev + 1);
                 } else {
-                    setOutputImg(data.url);
+                    const decryptedURL = decryptURL(data.url);
+                    setOutputImg(decryptedURL);
                 }
             } else {
                 toast({ variant: "destructive", description: data.error });

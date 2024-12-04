@@ -2,6 +2,7 @@ import prisma from "@/db";
 import { NEXT_AUTH_CONFIG } from "@/utils/auth";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
+import { encryptURL } from "@/utils/encryption";
 
 const loginRequired = process.env.LOGIN_REQUIRED === "true";
 export const maxDuration = 60;
@@ -76,8 +77,8 @@ export async function POST(req: NextRequest) {
             },
         });
     }
-
-    return NextResponse.json({ url: imageUrl })
+    const hashedImageUrl = encryptURL(imageUrl);
+    return NextResponse.json({ url: hashedImageUrl })
 }
 
 export async function GET() {
